@@ -2,7 +2,7 @@ import { BUY_ITEM, REMOVE_FEATURE, ADD_FEATURE } from "./types";
 
 export const buyItem = (feature) => (dispatch) => {
   return {
-    type: ADD_FEATURE,
+    type: BUY_ITEM,
     payload: { feature },
   };
 };
