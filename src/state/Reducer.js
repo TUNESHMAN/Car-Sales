@@ -1,4 +1,4 @@
-import { ADD_FEATURE, BUY_ITEM, REMOVE_FEATURE } from "./types";
+import { INCREMENT, BUY_ITEM, REMOVE_FEATURE } from "./types";
 
 const initialState = {
   additionalCosts: 0,
@@ -40,19 +40,22 @@ export function carReducer(car = initialState.car, action) {
 }
 
 export function additionalFeatureReducer(
-  additionalFeatures = initialState.additionalFeatures,
-  action
+  additionalFeatures = initialState.additionalFeatures
 ) {
-  switch (action.type) {
-    case ADD_FEATURE:
-      break;
-
-    default:
-      return state;
-  }
+  return additionalFeatures;
 }
 
 export function additionalCostReducer(
   additionalCosts = initialState.additionalCosts,
   action
-) {}
+) {
+  switch (action.type) {
+    case BUY_ITEM:
+      return additionalCosts + action.payload.feature.price;
+    case REMOVE_FEATURE:
+      return additionalCosts - action.payload.feature.price;
+
+    default:
+      return additionalCosts;
+  }
+}
