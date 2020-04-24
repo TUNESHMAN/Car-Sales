@@ -1,4 +1,4 @@
-import { ADD_FEATURE, BUY_ITEM, REMOVE_FEATURE } from "./Type";
+import { ADD_FEATURE, BUY_ITEM, REMOVE_FEATURE } from "./types";
 
 const initialState = {
     additionalCosts: 0,
