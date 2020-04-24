@@ -4,10 +4,14 @@ import { removeFeature } from "../state/Action";
 
 const AddedFeature = (props) => {
   console.log(props.features);
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button className="button" onClick={props.removeFeature}>
+      <button
+        className="button"
+        onClick={() => props.removeFeature(props.feature)}
+      >
         X
       </button>
       {props.feature.name}
@@ -15,10 +19,9 @@ const AddedFeature = (props) => {
   );
 };
 
-const mapStateToProps = (car) => {
+const mapStateToProps = (state) => {
   return {
-    remove: car.features,
+    newFeat: state.car.features,
   };
 };
-
-export default connect(mapStateToProps, removeFeature)(AddedFeature);
+export default connect(mapStateToProps, { removeFeature })(AddedFeature);

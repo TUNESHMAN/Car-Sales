@@ -6,7 +6,7 @@ const AdditionalFeature = (props) => {
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" onClick={buyItem}>
+      <button className="button" onClick={() => props.buyItem(props.feature)}>
         Add
       </button>
       {props.feature.name} (+{props.feature.price})
@@ -14,10 +14,9 @@ const AdditionalFeature = (props) => {
   );
 };
 
-const mapStateToProps = (car) => {
+const mapStateToProps = state => {
   return {
-    addedFeature: car.features,
+    remove: state.car.features,
   };
 };
-
-export default connect(mapStateToProps, buyItem)(AdditionalFeature);
+export default connect(mapStateToProps, { buyItem })(AdditionalFeature);

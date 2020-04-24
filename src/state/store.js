@@ -13,6 +13,6 @@ const devTools =
       window.__REDUX_DEVTOOLS_EXTENSION__()
     : (n) => n;
 
-const store = createStore(mainReducer, {});
+const store = createStore(mainReducer, {},devTools);
 
 export default store;
