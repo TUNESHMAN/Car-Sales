@@ -28,9 +28,7 @@ export function carReducer(car = initialState.car, action) {
       return {
         ...car,
         features: [
-          ...car.features.filter((fil) => {
-            fil.id !== action.payload.feature.id;
-          }),
+          ...car.features.filter((fil) => fil.id !== action.payload.feature.id),
         ],
       };
 
